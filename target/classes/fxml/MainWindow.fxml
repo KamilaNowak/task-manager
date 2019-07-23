@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
+   <top>
+      <VBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="750.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="%menubar.file">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menubar_close" text="%menubaritems.close" />
+                        <CheckMenuItem mnemonicParsing="false" onAction="#menubar_ontop" text="%menubaritems.ontop" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%menubar.edit">
+                  <items>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#menubar_setModena" text="Modena">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="menuitemStyles" />
+                           </toggleGroup></RadioMenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <RadioMenuItem mnemonicParsing="false" onAction="#menubar_setCaspian" text="Caspian" toggleGroup="$menuitemStyles" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%menubar.help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menubar_about" text="%menubaritems.about" />
+                        <MenuItem mnemonicParsing="false" onAction="#menubar_contact" text="%menubaritems.contact" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="%menubar.language">
+                     <items>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#changeLan_PL" text="%menubar.language.pl">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="menuitemLanguages" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#changeLan_EN" text="%menubar.language.en" toggleGroup="$menuitemLanguages" />
+                     </items>
+                  </Menu>
+              </menus>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </MenuBar>
+
+             <fx:include fx:id="topButtonsWindow" source="TopButtonsWindow.fxml" />
+         </children>
+         
+      </VBox>
+   </top>
+   <center>
+      <ImageView fitHeight="251.0" fitWidth="623.0" opacity="0.17" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../icons/ICO.png" />
+         </image>
+      </ImageView>
+   </center>
+</BorderPane>
